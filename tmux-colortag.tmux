@@ -8,26 +8,31 @@ if [[ "$TMUX_COLORTAG_SET_INTERVAL" == yes ]]; then
     tmux set -g status-interval 2
 fi
 
-tmux set -g status-style bg=colour237
-tmux set -g message-style fg=colour237,bg=colour248
-tmux set -g message-command-style fg=colour237,bg=colour248
-tmux set -g pane-active-border-style fg=colour240
-tmux set -g pane-border-style fg=colour236,bg=colour235
-tmux set -g pane-active-border-style bg=colour235
-tmux setw -g window-status-style fg=colour237,bg=colour237,none
-tmux setw -g window-status-activity-style bg=colour237,fg=colour248,none
-tmux setw -g window-status-bell-style bg=colour237,fg=colour248,none
-tmux setw -g window-status-separator ""
-
 color0=colour237
 color1=colour239
 color2=colour255
 color3=colour246
 color4=colour248
 color5=colour241
+color6=colour240
+color7=colour236
+color8=colour235
+
+tmux set -g status-style bg=$color0
+tmux set -g message-style fg=$color0,bg=$color4
+tmux set -g message-command-style fg=$color0,bg=$color4
+tmux set -g pane-active-border-style fg=$color6
+tmux set -g pane-border-style fg=$color7,bg=$color8
+tmux set -g pane-active-border-style bg=$color8
+tmux setw -g window-status-style fg=$color0,bg=$color0,none
+tmux setw -g window-status-activity-style bg=$color0,fg=$color4,none
+tmux setw -g window-status-bell-style bg=$color0,fg=$color4,none
+tmux setw -g window-status-separator ""
 
 RECOVER_BG="#[bg=$color0]"
-LEFTBAR_FORMAT="#{?client_prefix,#[fg=$color5]#[bg=$color4],#[fg=$color4]#[bg=$color5]} #S#{?client_prefix,#[fg=$color4],#[fg=$color5]}"
+LEFTBAR_FORMAT="$(printf "%s" \
+    "#{?client_prefix,#[fg=$color5]#[bg=$color4],#[fg=$color4]#[bg=$color5]} " \
+    "#S#{?client_prefix,#[fg=$color4],#[fg=$color5]}")"
 RIGHTBAR_DEFAULT="#[fg=$color3,bg=$color1]"
 RIGHTBAR_DEFAULT0="#[fg=$color1,bg=$color0]"
 RIGHTBAR_HOST="#[fg=$color0,bg=$color4]"
