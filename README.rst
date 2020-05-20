@@ -28,11 +28,9 @@ Installation
 
 - Hit prefix + I to fetch the plugin and source it.
 
-- Optional: for the best experience, try to use a short status update interval:
-
-  ::
-
-    set -g status-interval 2
+- Optional: for the best experience, this plugin assumes a short status update
+  interval. To change it back, specify ``TMUX_COLORTAG_SET_INTERVAL=no`` or
+  directly override the setting in your tmux config file.
 
 - Optional: if you don't like powerline symbols, feel free to change them by
   specifying the following environment variables to override the default:

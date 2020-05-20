@@ -5,6 +5,12 @@ TMUX_ARROW_SYMBOL_L1="${TMUX_ARROW_SYMBOL_L1:-$(printf '\ue0b6')}"
 TMUX_ARROW_SYMBOL_L2="${TMUX_ARROW_SYMBOL_L2:-$(printf '\ue0b7')}"
 TMUX_ARROW_SYMBOL_R1="${TMUX_ARROW_SYMBOL_R1:-$(printf '\ue0b4')}"
 TMUX_ARROW_SYMBOL_R2="${TMUX_ARROW_SYMBOL_R2:-$(printf '\ue0b5')}"
+TMUX_COLORTAG_SET_INTERVAL="${TMUX_COLORTAG_SET_INTERVAL:-yes}"
+
+if [[ "$TMUX_COLORTAG_SET_INTERVAL" == yes ]]; then
+    set -g status on
+    set -g status-interval 2
+fi
 
 tmux set -g status-style bg=colour237
 tmux set -g message-style fg=colour237,bg=colour248
