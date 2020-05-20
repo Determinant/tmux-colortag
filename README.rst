@@ -2,7 +2,7 @@ Tmux ColorTag theme
 -------------------
 
 .. image:: https://raw.githubusercontent.com/Determinant/tmux-colortag/master/demo.gif
-   :scale: 80 %
+   :scale: 67%
 
 What's This?
 ============
