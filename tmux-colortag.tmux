@@ -29,12 +29,16 @@ color5=colour241
 RECOVER_BG="#[bg=$color0]"
 LEFTBAR_FORMAT="#{?client_prefix,#[fg=$color5]#[bg=$color4],#[fg=$color4]#[bg=$color5]} #S#{?client_prefix,#[fg=$color4],#[fg=$color5]}"
 RIGHTBAR_DEFAULT="#[fg=$color3,bg=$color1]"
+RIGHTBAR_DEFAULT0="#[fg=$color1,bg=$color0]"
 RIGHTBAR_HOST="#[fg=$color0,bg=$color4]"
+RIGHTBAR_HOST0="#[fg=$color4,bg=$color1]"
 LOAD_DISP="#(awk '{print \$1, \$2, \$3}' /proc/loadavg)"
 TAB_COLOR="#(\"$CURRENT_DIR/name2color.py\" #W)"
 TAB_NORMAL_BEGIN="#[fg=$color0,bg=$TAB_COLOR]"
 TAB_END="#[fg=$TAB_COLOR,bg=$color0]"
-TAB_FOCUS_BEGIN="#[fg=$color2,bg=$TAB_COLOR]"
+TAB_FOCUS_BEGIN_BG="#[bg=$TAB_COLOR]"
+TAB_FOCUS_BEGIN_FG="#[fg=$color2]"
+TAB_FOCUS_BEGIN="${TAB_FOCUS_BEGIN_BG}${TAB_FOCUS_BEGIN_FG}"
 
 if [[ "$TMUX_COLORTAG_NOPOWERLINE" == yes ]]; then
     tmux set -g status-left  "${LEFTBAR_FORMAT} ${RECOVER_BG} "
@@ -48,7 +52,15 @@ else
     TMUX_ARROW_SYMBOL_R2="${TMUX_ARROW_SYMBOL_R2:-$(printf '\ue0b5')}"
     
     tmux set -g status-left "${LEFTBAR_FORMAT}${RECOVER_BG}${TMUX_ARROW_SYMBOL_R1} "
-    tmux set -g status-right "#[fg=colour239,bg=colour237]$TMUX_ARROW_SYMBOL_L1#[fg=colour246,bg=colour239] #(awk '{print \$1, \$2, \$3}' /proc/loadavg) #[fg=colour248,bg=colour239]$TMUX_ARROW_SYMBOL_L1#[fg=colour237,bg=colour248] #h "
-    tmux setw -g window-status-format "#[fg=colour237,bg=#(\"$CURRENT_DIR/name2color.py\" #W)]$TMUX_ARROW_SYMBOL_R1#[fg=colour237,bg=#(\"$CURRENT_DIR/name2color.py\" #W)] #I$TMUX_ARROW_SYMBOL_R2#[fg=colour237,bg=#(\"$CURRENT_DIR/name2color.py\" #W)]#W#[fg=#(\"$CURRENT_DIR/name2color.py\" #W),bg=colour237]$TMUX_ARROW_SYMBOL_R1 "
-    tmux setw -g window-status-current-format "#[fg=colour237,bg=#(\"$CURRENT_DIR/name2color.py\" #W)]$TMUX_ARROW_SYMBOL_R1#[fg=colour255,bg=#(\"$CURRENT_DIR/name2color.py\" #W)] #I$TMUX_ARROW_SYMBOL_R2#[fg=colour255,bg=#(\"$CURRENT_DIR/name2color.py\" #W)]#W#[fg=#(\"$CURRENT_DIR/name2color.py\" #W),bg=colour237]$TMUX_ARROW_SYMBOL_R1 "
+    tmux set -g status-right "$(printf %s \
+        "${RIGHTBAR_DEFAULT0}$TMUX_ARROW_SYMBOL_L1" \
+        "${RIGHTBAR_DEFAULT}${LOAD_DISP} " \
+        "${RIGHTBAR_HOST0}${TMUX_ARROW_SYMBOL_L1}" \
+        "${RIGHTBAR_HOST}#h ")"
+    tmux setw -g window-status-format "$(printf %s \
+        "${TAB_NORMAL_BEGIN}$TMUX_ARROW_SYMBOL_R1 " \
+        "#I$TMUX_ARROW_SYMBOL_R2#W${TAB_END}$TMUX_ARROW_SYMBOL_R1 ")"
+    tmux setw -g window-status-current-format "$(printf %s \
+        "${TAB_FOCUS_BEGIN_BG}$TMUX_ARROW_SYMBOL_R1 " \
+        "${TAB_FOCUS_BEGIN_FG}#I$TMUX_ARROW_SYMBOL_R2#W${TAB_END}$TMUX_ARROW_SYMBOL_R1 ")"
 fi
