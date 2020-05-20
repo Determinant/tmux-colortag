@@ -1,6 +1,9 @@
 Tmux ColorTag theme
 -------------------
 
+.. image:: https://raw.githubusercontent.com/Determinant/tmux-colortag/master/demo.gif
+   :scale: 100 %
+
 What's This?
 ============
 
