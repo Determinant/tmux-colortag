@@ -1,8 +1,11 @@
 Tmux ColorTag theme
 -------------------
 
-.. image:: https://raw.githubusercontent.com/Determinant/tmux-colortag/master/demo.gif
-   :scale: 67%
+.. raw:: html
+
+    <div align="center">
+    <img src="https://raw.githubusercontent.com/Determinant/tmux-colortag/master/demo.gif" width="95%">
+    </div>
 
 What's This?
 ============
