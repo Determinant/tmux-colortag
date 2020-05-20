@@ -33,12 +33,12 @@ Installation
     
     set -g @plugin 'Determinant/tmux-colortag'
 
-- Hit `prefix` + `I` to fetch the plugin and source it.
+- Hit ``prefix`` + ``I`` to fetch the plugin and source it.
 
 - Optional:
 
-  - To immediate play with the main feature, try prefix (Ctrl+b by default) + `,` and change the window name.
-  - tmux won't change the window name automatically once you set it manually. To test the auto-changing color, just run any command in your new window.
+  - To immediately play with the main feature, try ``prefix`` (``Ctrl+b`` by default) + ``,`` and change the window name.
+  - NOTE: tmux won't change the window name automatically once you set it manually. To test the auto-changing color, just run any command in your new window.
 
 - Optional: for the best experience, this plugin assumes a short status update
   interval. To change it back, specify ``TMUX_COLORTAG_SET_INTERVAL=no`` or
