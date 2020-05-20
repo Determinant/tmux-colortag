@@ -18,13 +18,14 @@ runs!
 Installation
 ============
 
-- Make sure you have tmux plugin manager installed: https://github.com/tmux-plugins/tpm
-
-- If you don't have powerline symbols (or you don't know what that is), add the following line to your ``.tmux.conf``:
+- If you don't have powerline symbols in your terminal font (or you don't know
+  what that is), add the following line to the top of your ``.tmux.conf``:
 
   ::
 
     TMUX_COLORTAG_NOPOWERLINE=yes
+
+- Make sure you have tmux plugin manager installed: https://github.com/tmux-plugins/tpm
 
 - Add plugin to the list of TPM plugins in ``.tmux.conf``:
 
