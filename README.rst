@@ -15,6 +15,8 @@ runs!
 Installation
 ============
 
+- Make sure you have tmux plugin manager installed: https://github.com/tmux-plugins/tpm
+
 - Add plugin to the list of TPM plugins in ``.tmux.conf``:
 
   ::
