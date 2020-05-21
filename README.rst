@@ -4,12 +4,16 @@ Tmux ColorTag Theme
 .. raw:: html
 
     <div align="center">
-    <img src="https://raw.githubusercontent.com/Determinant/tmux-colortag/master/demo.gif" width="95%">
+    <img src="https://raw.githubusercontent.com/Determinant/tmux-colortag/master/demo.gif" width="90%">
     </div>
 
 Also...works for powerline haters...
 
-.. image:: https://raw.githubusercontent.com/Determinant/tmux-colortag/master/no-powerline-symbol.png
+.. raw:: html
+
+    <div align="center">
+    <img src="https://raw.githubusercontent.com/Determinant/tmux-colortag/master/no-powerline-symbol.png" width="90%">
+    </div>
 
 What's This?
 ============
