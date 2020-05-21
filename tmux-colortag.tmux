@@ -51,15 +51,17 @@ TAB_FOCUS_BEGIN_FG="#[fg=$color2]"
 TAB_FOCUS_BEGIN="${TAB_FOCUS_BEGIN_BG}${TAB_FOCUS_BEGIN_FG}"
 
 if [[ "$TMUX_COLORTAG_NOPOWERLINE" == yes ]]; then
+    TMUX_COLORTAG_IDX_SEP="${TMUX_COLORTAG_IDX_SEP:-|}"
     tmux set -g status-left  "${LEFTBAR_FORMAT} ${RECOVER_BG} "
     tmux set -g status-right "${RIGHTBAR_DEFAULT} ${LOAD_DISP} ${RIGHTBAR_HOST} #h "
-    tmux set -g window-status-format "${TAB_NORMAL_BEGIN} #I|#W ${TAB_END} "
-    tmux set -g window-status-current-format "${TAB_FOCUS_BEGIN} #I|#W ${TAB_END} "
+    tmux set -g window-status-format "${TAB_NORMAL_BEGIN} #I${TMUX_COLORTAG_IDX_SEP}#W ${TAB_END} "
+    tmux set -g window-status-current-format "${TAB_FOCUS_BEGIN} #I${TMUX_COLORTAG_IDX_SEP}#W ${TAB_END} "
 else
     TMUX_ARROW_SYMBOL_L1="${TMUX_ARROW_SYMBOL_L1:-$(printf '\ue0b6')}"
     TMUX_ARROW_SYMBOL_L2="${TMUX_ARROW_SYMBOL_L2:-$(printf '\ue0b7')}"
     TMUX_ARROW_SYMBOL_R1="${TMUX_ARROW_SYMBOL_R1:-$(printf '\ue0b4')}"
     TMUX_ARROW_SYMBOL_R2="${TMUX_ARROW_SYMBOL_R2:-$(printf '\ue0b5')}"
+    TMUX_COLORTAG_IDX_SEP="${TMUX_COLORTAG_IDX_SEP:-$TMUX_ARROW_SYMBOL_R2}"
     
     tmux set -g status-left "${LEFTBAR_FORMAT}${RECOVER_BG}${TMUX_ARROW_SYMBOL_R1} "
     tmux set -g status-right "$(printf %s \
@@ -69,8 +71,8 @@ else
         "${RIGHTBAR_HOST}#h ")"
     tmux set -g window-status-format "$(printf %s \
         "${TAB_NORMAL_BEGIN}$TMUX_ARROW_SYMBOL_R1 " \
-        "#I$TMUX_ARROW_SYMBOL_R2#W${TAB_END}$TMUX_ARROW_SYMBOL_R1 ")"
+        "#I${TMUX_COLORTAG_IDX_SEP}#W${TAB_END}$TMUX_ARROW_SYMBOL_R1 ")"
     tmux set -g window-status-current-format "$(printf %s \
         "${TAB_FOCUS_BEGIN_BG}$TMUX_ARROW_SYMBOL_R1 " \
-        "${TAB_FOCUS_BEGIN_FG}#I$TMUX_ARROW_SYMBOL_R2#W${TAB_END}$TMUX_ARROW_SYMBOL_R1 ")"
+        "${TAB_FOCUS_BEGIN_FG}#I${TMUX_COLORTAG_IDX_SEP}#W${TAB_END}$TMUX_ARROW_SYMBOL_R1 ")"
 fi
