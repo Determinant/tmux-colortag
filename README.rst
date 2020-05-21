@@ -59,3 +59,11 @@ Installation
   - ``TMUX_ARROW_SYMBOL_L2``
   - ``TMUX_ARROW_SYMBOL_R1``
   - ``TMUX_ARROW_SYMBOL_R2``
+
+- Optional: if you only want to color the tags (without changing other styles
+  such as borders), specify ``TMUX_COLORTAG_TAG_ONLY=yes``.
+
+Update to the Latest Version
+============================
+
+- Hit ``prefix`` + ``U`` and choose this plugin.

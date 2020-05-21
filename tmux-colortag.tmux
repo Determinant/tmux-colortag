@@ -2,6 +2,8 @@
 
 CURRENT_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 TMUX_COLORTAG_SET_INTERVAL="${TMUX_COLORTAG_SET_INTERVAL:-yes}"
+TMUX_COLORTAG_TAG_ONLY="${TMUX_COLORTAG_TAG_ONLY:-no}"
+TMUX_COLORTAG_NOPOWERLINE="${TMUX_COLORTAG_NOPOWERLINE:-no}"
 
 if [[ "$TMUX_COLORTAG_SET_INTERVAL" == yes ]]; then
     tmux set -g status on
@@ -18,16 +20,18 @@ color6=colour240
 color7=colour236
 color8=colour235
 
-tmux set -g status-style bg=$color0
-tmux set -g message-style fg=$color0,bg=$color4
-tmux set -g message-command-style fg=$color0,bg=$color4
-tmux set -g pane-active-border-style fg=$color6
-tmux set -g pane-border-style fg=$color7,bg=$color8
-tmux set -g pane-active-border-style bg=$color8
-tmux setw -g window-status-style fg=$color0,bg=$color0,none
-tmux setw -g window-status-activity-style bg=$color0,fg=$color4,none
-tmux setw -g window-status-bell-style bg=$color0,fg=$color4,none
-tmux setw -g window-status-separator ""
+if [[ "$TMUX_COLORTAG_TAG_ONLY" != yes ]]; then
+    tmux set -g status-style bg=$color0
+    tmux set -g message-style fg=$color0,bg=$color4
+    tmux set -g message-command-style fg=$color0,bg=$color4
+    tmux set -g pane-active-border-style fg=$color6
+    tmux set -g pane-border-style fg=$color7,bg=$color8
+    tmux set -g pane-active-border-style bg=$color8
+    tmux setw -g window-status-style fg=$color0,bg=$color0,none
+    tmux setw -g window-status-activity-style bg=$color0,fg=$color4,none
+    tmux setw -g window-status-bell-style bg=$color0,fg=$color4,none
+    tmux setw -g window-status-separator ""
+fi
 
 RECOVER_BG="#[bg=$color0]"
 LEFTBAR_FORMAT="$(printf "%s" \
