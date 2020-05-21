@@ -7,6 +7,10 @@ Tmux ColorTag theme
     <img src="https://raw.githubusercontent.com/Determinant/tmux-colortag/master/demo.gif" width="95%">
     </div>
 
+Also...works for powerline haters...
+
+.. image:: https://raw.githubusercontent.com/Determinant/tmux-colortag/master/no-powerline-symbol.png
+
 What's This?
 ============
 
