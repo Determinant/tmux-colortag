@@ -21,17 +21,18 @@ color7=colour236
 color8=colour235
 
 if [[ "$TMUX_COLORTAG_TAG_ONLY" != yes ]]; then
-    tmux set -g status-style bg=$color0
     tmux set -g message-style fg=$color0,bg=$color4
     tmux set -g message-command-style fg=$color0,bg=$color4
     tmux set -g pane-active-border-style fg=$color6
     tmux set -g pane-border-style fg=$color7,bg=$color8
     tmux set -g pane-active-border-style bg=$color8
-    tmux setw -g window-status-style fg=$color0,bg=$color0,none
-    tmux setw -g window-status-activity-style bg=$color0,fg=$color4,none
-    tmux setw -g window-status-bell-style bg=$color0,fg=$color4,none
-    tmux setw -g window-status-separator ""
 fi
+
+tmux set -g window-status-separator ""
+tmux set -g status-style bg=$color0
+tmux set -g window-status-style fg=$color0,bg=$color0,none
+tmux set -g window-status-activity-style bg=$color0,fg=$color4,none
+tmux set -g window-status-bell-style bg=$color0,fg=$color4,none
 
 RECOVER_BG="#[bg=$color0]"
 LEFTBAR_FORMAT="$(printf "%s" \
@@ -52,8 +53,8 @@ TAB_FOCUS_BEGIN="${TAB_FOCUS_BEGIN_BG}${TAB_FOCUS_BEGIN_FG}"
 if [[ "$TMUX_COLORTAG_NOPOWERLINE" == yes ]]; then
     tmux set -g status-left  "${LEFTBAR_FORMAT} ${RECOVER_BG} "
     tmux set -g status-right "${RIGHTBAR_DEFAULT} ${LOAD_DISP} ${RIGHTBAR_HOST} #h "
-    tmux setw -g window-status-format "${TAB_NORMAL_BEGIN} #I|#W ${TAB_END} "
-    tmux setw -g window-status-current-format "${TAB_FOCUS_BEGIN} #I|#W ${TAB_END} "
+    tmux set -g window-status-format "${TAB_NORMAL_BEGIN} #I|#W ${TAB_END} "
+    tmux set -g window-status-current-format "${TAB_FOCUS_BEGIN} #I|#W ${TAB_END} "
 else
     TMUX_ARROW_SYMBOL_L1="${TMUX_ARROW_SYMBOL_L1:-$(printf '\ue0b6')}"
     TMUX_ARROW_SYMBOL_L2="${TMUX_ARROW_SYMBOL_L2:-$(printf '\ue0b7')}"
@@ -66,10 +67,10 @@ else
         "${RIGHTBAR_DEFAULT}${LOAD_DISP} " \
         "${RIGHTBAR_HOST0}${TMUX_ARROW_SYMBOL_L1}" \
         "${RIGHTBAR_HOST}#h ")"
-    tmux setw -g window-status-format "$(printf %s \
+    tmux set -g window-status-format "$(printf %s \
         "${TAB_NORMAL_BEGIN}$TMUX_ARROW_SYMBOL_R1 " \
         "#I$TMUX_ARROW_SYMBOL_R2#W${TAB_END}$TMUX_ARROW_SYMBOL_R1 ")"
-    tmux setw -g window-status-current-format "$(printf %s \
+    tmux set -g window-status-current-format "$(printf %s \
         "${TAB_FOCUS_BEGIN_BG}$TMUX_ARROW_SYMBOL_R1 " \
         "${TAB_FOCUS_BEGIN_FG}#I$TMUX_ARROW_SYMBOL_R2#W${TAB_END}$TMUX_ARROW_SYMBOL_R1 ")"
 fi
