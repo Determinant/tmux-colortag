@@ -7,7 +7,7 @@ Tmux ColorTag Theme
     <img src="https://raw.githubusercontent.com/Determinant/tmux-colortag/master/demo.gif" width="90%">
     </div>
 
-Also...works for powerline haters...
+Also...works for powerline haters using the default setting.
 
 .. raw:: html
 
@@ -25,13 +25,6 @@ runs!
 
 Installation
 ============
-
-- If you don't have powerline symbols in your terminal font (or you don't know
-  what that is), add the following line to the top of your ``.tmux.conf``:
-
-  ::
-
-    TMUX_COLORTAG_NOPOWERLINE=yes
 
 - Make sure you have tmux plugin manager installed: https://github.com/tmux-plugins/tpm
 
@@ -51,17 +44,24 @@ Installation
 Customization
 =============
 
-- For the best experience, this plugin assumes a short status update
-  interval. To change it back, specify ``TMUX_COLORTAG_SET_INTERVAL=no`` or
-  directly override the setting in your tmux config file.
+- If you would like to use Powerline Symbols like shown in the demo, add the
+  following line to the top of your ``.tmux.conf`` to enable them:
 
-- If you don't like powerline symbols, feel free to change them by
+  ::
+
+    TMUX_COLORTAG_USE_POWERLINE=yes
+
+- If you don't like the existing powerline symbols, feel free to change them by
   specifying the following environment variables to override the default:
 
   - ``TMUX_ARROW_SYMBOL_L1``
   - ``TMUX_ARROW_SYMBOL_L2``
   - ``TMUX_ARROW_SYMBOL_R1``
   - ``TMUX_ARROW_SYMBOL_R2``
+
+- For the best experience, this plugin assumes a short status update
+  interval. To change it back, specify ``TMUX_COLORTAG_SET_INTERVAL=no`` or
+  directly override the setting in your tmux config file.
 
 - If you only want to color the tags (without changing other styles
   such as borders), specify ``TMUX_COLORTAG_TAG_ONLY=yes``.
