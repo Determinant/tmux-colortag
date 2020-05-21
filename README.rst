@@ -59,6 +59,8 @@ Customization
   - ``TMUX_ARROW_SYMBOL_R1``
   - ``TMUX_ARROW_SYMBOL_R2``
 
+- TIP: If you love the status bar on the top (instead of at the bottom by default in tmux), add ``set-option -g status-position top`` to your config file
+
 - For the best experience, this plugin assumes a short status update
   interval. To change it back, specify ``TMUX_COLORTAG_SET_INTERVAL=no`` or
   directly override the setting in your tmux config file.
