@@ -11,7 +11,7 @@ def warn(msg):
 
 
 def error(msg):
-    print(msg + '\n')
+    print("ColorTag: {}\n".format(msg))
 
 
 saved_state = os.path.expanduser("~/.tmux-colortag.state")
@@ -67,14 +67,16 @@ if args.clear_name:
     changed = True
 
 if not (args.color_idx is None):
-    if args.color_idx < 0 and args.color_idx >= 256:
+    if args.color_idx < 0 or args.color_idx >= 256:
         error("invalid color code")
+        sys.exit(0)
     state[args.idx] = args.color_idx
     changed = True
 
 if not (args.color_name is None):
-    if args.color_name < 0 and args.color_name >= 256:
+    if args.color_name < 0 or args.color_name >= 256:
         error("invalid color code")
+        sys.exit(0)
     state[args.name] = args.color_name
     changed = True
 

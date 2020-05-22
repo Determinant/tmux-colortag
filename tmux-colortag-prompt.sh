@@ -6,10 +6,10 @@ case "$1" in
         tmux command-prompt -p '[ColorTag]:' "run-shell 'idx=#I name=#W $CURRENT_DIR/tmux-colortag-prompt.sh %1'"
         ;;
     color-idx)
-        "$CURRENT_DIR/name2color.py" "$idx" "$name" --color-idx "$2" || echo "invalid argument"
+        "$CURRENT_DIR/name2color.py" "$idx" "$name" --color-idx "$2" || echo "ColorTag: invalid argument"
         ;;
     color-name)
-        "$CURRENT_DIR/name2color.py" "$idx" "$name" --color-name "$2" || echo "invalid argument"
+        "$CURRENT_DIR/name2color.py" "$idx" "$name" --color-name "$2" || echo "ColorTag: invalid argument"
         ;;
     clear-idx)
         "$CURRENT_DIR/name2color.py" "$idx" "$name" --clear-idx
@@ -20,5 +20,5 @@ case "$1" in
     clear-all)
         "$CURRENT_DIR/name2color.py" "$idx" "$name" --clear
         ;;
-    *) echo "invalid ColorTag command"; exit 0;;
+    *) echo "ColorTag: invalid command"; exit 0;;
 esac
