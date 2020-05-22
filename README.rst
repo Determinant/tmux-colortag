@@ -7,12 +7,12 @@ Tmux ColorTag Theme
     <img src="https://raw.githubusercontent.com/Determinant/tmux-colortag/master/demo.gif" width="90%">
     </div>
 
-Also...works for powerline haters using the default setting.
+Also works for powerline haters with default setting.
 
 .. raw:: html
 
     <div align="center">
-    <img src="https://raw.githubusercontent.com/Determinant/tmux-colortag/master/no-powerline-symbol.png" width="90%">
+    <img src="https://raw.githubusercontent.com/Determinant/tmux-colortag/master/no-powerline-symbol.png" width="85%">
     </div>
 
 What's This?
@@ -29,12 +29,25 @@ Features
 - Automically color the window tabs by their name hash
 - Allow manual coloring
 
+TLDR; I just want it
+====================
+
+- Paste the following to your new ``~/.tmux.conf``:
+  ::
+
+    set -g @plugin 'tmux-plugins/tpm'
+    set -g @plugin 'tmux-plugins/tmux-sensible'
+    set -g @plugin 'tmux-plugins/tmux-colortag'
+    run -b '~/.tmux/plugins/tpm/tpm'
+
+- Run ``tmux``, and then hit ``prefix`` + ``I`` so everything should be ready.
+
 Installation
 ============
 
 - Make sure you have tmux plugin manager installed: https://github.com/tmux-plugins/tpm
 
-- Add plugin to the list of TPM plugins in ``.tmux.conf``:
+- Add it to the list of TPM plugins in ``.tmux.conf``:
 
   ::
     
@@ -64,6 +77,8 @@ Customization
   ::
 
     TMUX_COLORTAG_USE_POWERLINE=yes
+
+- To change the prompt key (``prefix`` + C), specify your key in ``TMUX_COLORTAG_KEY``.
 
 - If you don't like the existing powerline symbols, feel free to change them by
   specifying the following environment variables to override the default:
