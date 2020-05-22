@@ -14,7 +14,6 @@ def error(msg):
     print("ColorTag: {}\n".format(msg))
 
 
-saved_state = os.path.expanduser("~/.tmux-colortag.state")
 # add your favorite color code (256) here as candidates
 colors = [
     63, 64, 65, 68, 103, 107,
@@ -23,6 +22,7 @@ colors = [
 ]
 
 parser = argparse.ArgumentParser(description='Maps tmux window tags to colors.')
+parser.add_argument('session', type=str, help='session name')
 parser.add_argument('idx', type=int, help='index of the window')
 parser.add_argument('name', type=str, help='name of the window')
 parser.add_argument('--color-idx', type=int, help='manually change the color mapping for an index')
@@ -34,6 +34,9 @@ args = parser.parse_args()
 
 state = {}
 changed = True
+saved_state = os.path.expanduser(
+    "~/.tmux-colortag-{}.state".format(args.session))
+
 try:
     with open(saved_state, "rb") as f:
         _state = pickle.load(f)

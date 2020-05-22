@@ -25,9 +25,9 @@ programs!
 Features
 ========
 
-- Support Powerline symbols
 - Automically color the window tabs by their name hash
-- Allow manual coloring
+- Manual control of coloring in tmux (also saved)
+- Support Powerline symbols
 
 TLDR; I just want it
 ====================
