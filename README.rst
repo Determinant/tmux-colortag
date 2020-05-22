@@ -37,7 +37,7 @@ TLDR; I just want it
 
     curl -sS https://raw.githubusercontent.com/Determinant/tmux-colortag/master/bootstrap.sh | bash
 
-- Run ``tmux``, and then hit ``prefix`` + ``I`` so everything should be ready.
+- Run ``tmux``, and then hit ``Ctrl+b``, release, then ``I`` so everything should be ready.
 
 Installation
 ============
