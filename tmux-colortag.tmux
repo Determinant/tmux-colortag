@@ -11,44 +11,40 @@ if [[ "$TMUX_COLORTAG_SET_INTERVAL" == yes ]]; then
     tmux set -g status-interval 2
 fi
 
-color0=colour237
-color1=colour239
-color2=colour255
-color3=colour246
-color4=colour248
-color5=colour241
-color6=colour240
-color7=colour236
-color8=colour235
+bg0=colour235
+bg1=colour237
+white0=colour255
+lightgray=colour248
+darkgray=colour241
 
 if [[ "$TMUX_COLORTAG_TAG_ONLY" != yes ]]; then
-    tmux set -g message-style fg=$color0,bg=$color4
-    tmux set -g message-command-style fg=$color0,bg=$color4
-    tmux set -g pane-active-border-style fg=$color6,bg=$color8
-    tmux set -g pane-border-style fg=$color7,bg=$color8
-    tmux set -g window-style bg=$color8
+    tmux set -g message-style fg=$bg1,bg=$lightgray
+    tmux set -g message-command-style fg=$bg1,bg=$lightgray
+    tmux set -g pane-active-border-style fg=$darkgray,bg=$bg0
+    tmux set -g pane-border-style fg=$bg1,bg=$bg0
+    tmux set -g window-style bg=$bg0
 fi
 
-tmux set -g status-style bg=$color0
+tmux set -g status-style bg=$bg1
 tmux set -g window-status-separator ""
-tmux set -g window-status-style fg=$color0,bg=$color0,none
-tmux set -g window-status-activity-style bg=$color0,fg=$color4,none
-tmux set -g window-status-bell-style bg=$color0,fg=$color4,none
+tmux set -g window-status-style fg=$bg1,bg=$bg1,none
+tmux set -g window-status-activity-style bg=$bg1,fg=$lightgray,none
+tmux set -g window-status-bell-style bg=$bg1,fg=$lightgray,none
 
-RECOVER_BG="#[bg=$color0]"
+RECOVER_BG="#[bg=$bg1]"
 LEFTBAR_FORMAT="$(printf "%s" \
-    "#{?client_prefix,#[fg=$color5]#[bg=$color4],#[fg=$color4]#[bg=$color5]} " \
-    "#S#{?client_prefix,#[fg=$color4],#[fg=$color5]}")"
-RIGHTBAR_DEFAULT="#[fg=$color3,bg=$color1]"
-RIGHTBAR_DEFAULT0="#[fg=$color1,bg=$color0]"
-RIGHTBAR_HOST="#[fg=$color0,bg=$color4]"
-RIGHTBAR_HOST0="#[fg=$color4,bg=$color1]"
+    "#{?client_prefix,#[fg=$darkgray]#[bg=$lightgray],#[fg=$lightgray]#[bg=$darkgray]} " \
+    "#S#{?client_prefix,#[fg=$lightgray],#[fg=$darkgray]}")"
+RIGHTBAR_DEFAULT="#[fg=$lightgray,bg=$darkgray]"
+RIGHTBAR_DEFAULT0="#[fg=$darkgray,bg=$bg1]"
+RIGHTBAR_HOST="#[fg=$bg1,bg=$lightgray]"
+RIGHTBAR_HOST0="#[fg=$lightgray,bg=$darkgray]"
 LOAD_DISP="#(awk '{print \$1, \$2, \$3}' /proc/loadavg)"
 TAB_COLOR="#(\"$CURRENT_DIR/name2color.py\" #S #I #W)"
-TAB_NORMAL_BEGIN="#[fg=$color0,bg=$TAB_COLOR]"
-TAB_END="#[fg=$TAB_COLOR,bg=$color0]"
+TAB_NORMAL_BEGIN="#[fg=$bg1,bg=$TAB_COLOR]"
+TAB_END="#[fg=$TAB_COLOR,bg=$bg1]"
 TAB_FOCUS_BEGIN_BG="#[bg=$TAB_COLOR]"
-TAB_FOCUS_BEGIN_FG="#[fg=$color2]"
+TAB_FOCUS_BEGIN_FG="#[fg=$white0]"
 TAB_FOCUS_BEGIN="${TAB_FOCUS_BEGIN_BG}${TAB_FOCUS_BEGIN_FG}"
 
 if [[ "$TMUX_COLORTAG_USE_POWERLINE" == no ]]; then

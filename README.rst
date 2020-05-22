@@ -58,13 +58,17 @@ Installation
   - To immediately play with the main feature, try ``prefix`` (``Ctrl+b`` by default) + ``,`` and change the window name.
   - NOTE: tmux won't change the window name automatically once you set it manually. To test the auto-changing color, just run any command in your new window.
 
+Help
+====
+Press ``prefix``, then ``C``, type ``help`` and press enter.
+
 Customization
 =============
 
-- To manually set the color of the active window tag, press ``prefix`` + C and:
+- To manually set the color of the active window tag, press ``prefix`` + ``C`` and:
 
-  - ``color-idx <256 color code>`` to manually set the color for the window index
-  - ``color-name <256 color code>`` to manually set the color for the name
+  - ``color-idx <0-255 color code>`` to manually set the color for the window index
+  - ``color-name <0-255 color code>`` to manually set the color for the name
   - ``clear-idx`` clears the preivous color of the index
   - ``clear-name`` clears the preivous color of the name
   - ``clear-all`` use auto-coloring for all window tags
@@ -82,7 +86,7 @@ Customization
 
     TMUX_COLORTAG_USE_POWERLINE=yes
 
-- To change the prompt key (``prefix`` + C), specify your key in ``TMUX_COLORTAG_KEY``.
+- To change the prompt key (``prefix`` + ``C``), specify your key in ``TMUX_COLORTAG_KEY``.
 
 - If you don't like the existing powerline symbols, feel free to change them by
   specifying the following environment variables to override the default:
