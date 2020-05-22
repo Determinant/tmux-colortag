@@ -19,9 +19,8 @@ What's This?
 ============
 
 This is a very succinct theme that colors the window tags according to their
-names. This means with a proper ``status-interval`` set in your tmux (see
-below), it can even automatically change when various programs in your shell
-runs!
+names. The color can even automatically change when your shell runs different
+programs!
 
 Features
 ========
@@ -55,9 +54,9 @@ Customization
 
   - ``color-idx <256 color code>`` to manually set the color for the window index
   - ``color-name <256 color code>`` to manually set the color for the name
-  = ``clear-idx`` clears the preivous color of the index
-  = ``clear-name`` clears the preivous color of the name
-  = ``clear-all`` use auto-coloring for all window tags
+  - ``clear-idx`` clears the preivous color of the index
+  - ``clear-name`` clears the preivous color of the name
+  - ``clear-all`` use auto-coloring for all window tags
 
 - If you would like to use Powerline symbols like shown in the demo, add the
   following line to the top of your ``.tmux.conf`` to enable them:
