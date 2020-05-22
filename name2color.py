@@ -30,6 +30,7 @@ parser.add_argument('--color-name', type=int, help='manually change the color ma
 parser.add_argument('--clear-idx', action='store_true')
 parser.add_argument('--clear-name', action='store_true')
 parser.add_argument('--clear', action='store_true')
+parser.add_argument('--show-state', action='store_true')
 args = parser.parse_args()
 
 state = {}
@@ -54,6 +55,12 @@ if len(args.name) > 100:
     error("invalid name")
 if args.idx < 0 or args.idx >= 1024:
     error("invalid idx")
+
+if args.show_state:
+    print("ColorTag: manual coloring for session \"{}\"".format(args.session))
+    for (k, v) in state.items():
+        print("{} => colour{}".format(k, v))
+    sys.exit(0)
 
 if args.clear_idx:
     try:
