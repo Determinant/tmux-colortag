@@ -10,6 +10,6 @@ cat > ~/.tmux.conf << EOF
 set-option -g status-position top
 set -g @plugin 'tmux-plugins/tpm'
 set -g @plugin 'tmux-plugins/tmux-sensible'
-set -g @plugin 'tmux-plugins/tmux-colortag'
+set -g @plugin 'Determinant/tmux-colortag'
 run -b '~/.tmux/plugins/tpm/tpm'
 EOF
