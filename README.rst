@@ -23,6 +23,13 @@ names. This means with a proper ``status-interval`` set in your tmux (see
 below), it can even automatically change when various programs in your shell
 runs!
 
+Features
+========
+
+- Support Powerline symbols
+- Automically color the window tabs by their name hash
+- Allow manual coloring
+
 Installation
 ============
 
@@ -44,7 +51,15 @@ Installation
 Customization
 =============
 
-- If you would like to use Powerline Symbols like shown in the demo, add the
+- To manually set the color of the active window tag, press ``prefix`` + C and:
+
+  - ``color-idx <256 color code>`` to manually set the color for the window index
+  - ``color-name <256 color code>`` to manually set the color for the name
+  = ``clear-idx`` clears the preivous color of the index
+  = ``clear-name`` clears the preivous color of the name
+  = ``clear-all`` use auto-coloring for all window tags
+
+- If you would like to use Powerline symbols like shown in the demo, add the
   following line to the top of your ``.tmux.conf`` to enable them:
 
   ::

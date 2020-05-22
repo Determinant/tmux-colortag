@@ -4,6 +4,7 @@ CURRENT_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 TMUX_COLORTAG_SET_INTERVAL="${TMUX_COLORTAG_SET_INTERVAL:-yes}"
 TMUX_COLORTAG_TAG_ONLY="${TMUX_COLORTAG_TAG_ONLY:-no}"
 TMUX_COLORTAG_USE_POWERLINE="${TMUX_COLORTAG_USE_POWERLINE:-no}"
+TMUX_COLORTAG_KEY="${TMUX_COLORTAG_KEY:-C}"
 
 if [[ "$TMUX_COLORTAG_SET_INTERVAL" == yes ]]; then
     tmux set -g status on
@@ -43,7 +44,7 @@ RIGHTBAR_DEFAULT0="#[fg=$color1,bg=$color0]"
 RIGHTBAR_HOST="#[fg=$color0,bg=$color4]"
 RIGHTBAR_HOST0="#[fg=$color4,bg=$color1]"
 LOAD_DISP="#(awk '{print \$1, \$2, \$3}' /proc/loadavg)"
-TAB_COLOR="#(\"$CURRENT_DIR/name2color.py\" #W)"
+TAB_COLOR="#(\"$CURRENT_DIR/name2color.py\" #I #W)"
 TAB_NORMAL_BEGIN="#[fg=$color0,bg=$TAB_COLOR]"
 TAB_END="#[fg=$TAB_COLOR,bg=$color0]"
 TAB_FOCUS_BEGIN_BG="#[bg=$TAB_COLOR]"
@@ -80,3 +81,5 @@ else
         "${TAB_FOCUS_BEGIN_BG}$TMUX_ARROW_SYMBOL_R1 " \
         "${TAB_FOCUS_BEGIN_FG}#I${TMUX_COLORTAG_IDX_SEP}#W${TAB_END}$TMUX_ARROW_SYMBOL_R1 ")"
 fi
+
+tmux bind-key "$TMUX_COLORTAG_KEY" run-shell "'$CURRENT_DIR/tmux-colortag-prompt.sh' prompt"
