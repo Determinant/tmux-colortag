@@ -11,12 +11,12 @@ if [[ "$TMUX_COLORTAG_SET_INTERVAL" == yes ]]; then
     tmux set -g status-interval 2
 fi
 
-bg0=colour235
-bg1=colour237
-white0=colour255
-white1=colour250
-lightgray=colour248
-darkgray=colour241
+bg0=${colortag_bg0:-colour235}
+bg1=${colortag_bg1:-colour237}
+white0=${colortag_white0:-colour255}
+white1=${colortag_white1:-colour250}
+lightgray=${colortag_lightgray:-colour248}
+darkgray=${colortag_darkgray:-colour241}
 
 if [[ "$TMUX_COLORTAG_TAG_ONLY" != yes ]]; then
     tmux set -g message-style fg=$bg1,bg=$lightgray

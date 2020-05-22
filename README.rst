@@ -88,24 +88,30 @@ Customization
 
 - To change the prompt key (``prefix`` + ``C``), specify your key in ``TMUX_COLORTAG_KEY``.
 
-- If you don't like the existing powerline symbols, feel free to change them by
-  specifying the following environment variables to override the default:
+- TIP: If you love the status bar on the top (instead of at the bottom by default in tmux), add ``set-option -g status-position top`` to your config file
+
+- Other tweakable variables:
 
   - ``TMUX_ARROW_SYMBOL_L1``
   - ``TMUX_ARROW_SYMBOL_L2``
   - ``TMUX_ARROW_SYMBOL_R1``
   - ``TMUX_ARROW_SYMBOL_R2``
+  - ``TMUX_COLORTAG_SET_INTERVAL``: for the best experience, this plugin
+    assumes a short status update interval. To change it back, make it ``no`` or
+    directly override the setting in your tmux config file.
 
-- TIP: If you love the status bar on the top (instead of at the bottom by default in tmux), add ``set-option -g status-position top`` to your config file
+  - ``TMUX_COLORTAG_TAG_ONLY``: if you only want to color the tags (without
+    changing other styles such as borders), make it ``yes``.
 
-- For the best experience, this plugin assumes a short status update
-  interval. To change it back, specify ``TMUX_COLORTAG_SET_INTERVAL=no`` or
-  directly override the setting in your tmux config file.
+  - ``TMUX_COLORTAG_IDX_SEP``: controls the separator between the window index and name.
+  - Theme colors (value example: "colour123")
 
-- If you only want to color the tags (without changing other styles
-  such as borders), specify ``TMUX_COLORTAG_TAG_ONLY=yes``.
-
-- ``TMUX_COLORTAG_IDX_SEP`` controls the separator between the window index and name.
+    - ``colortag_bg0``
+    - ``colortag_bg1``
+    - ``colortag_white0``: font color of the active tag
+    - ``colortag_white1``: color of the active pane border
+    - ``colortag_lightgray``
+    - ``colortag_darkgray``
 
 Update to the Latest Version
 ============================
