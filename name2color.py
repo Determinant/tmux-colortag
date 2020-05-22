@@ -1,6 +1,5 @@
-#!/usr/bin/env python3
+#!/usr/bin/env python
 import sys
-import struct
 import hashlib
 # add your favorite color code (256) here as candidates
 colors = [
@@ -12,5 +11,7 @@ h = hashlib.sha1(sys.argv[1].encode('utf-8')).digest()
 if sys.version_info.major == 3:
     hn = int.from_bytes(h, byteorder='big')
 else:
-    (hn,) = struct.unpack('>Q12x', h)
+    hn = 0
+    for b in bytearray(h):
+        hn = hn * 256 + int(b)
 print("colour{}".format(colors[hn % len(colors)]))
