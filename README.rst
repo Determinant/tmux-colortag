@@ -12,7 +12,7 @@ Also works for powerline haters with default setting.
 .. raw:: html
 
     <div align="center">
-    <img src="https://raw.githubusercontent.com/Determinant/tmux-colortag/master/no-powerline-symbol.png" width="80%">
+    <img src="https://raw.githubusercontent.com/Determinant/tmux-colortag/master/no-powerline-symbol.png" width="70%">
     </div>
 
 What's This?
@@ -67,6 +67,12 @@ Customization
   - ``clear-idx`` clears the preivous color of the index
   - ``clear-name`` clears the preivous color of the name
   - ``clear-all`` use auto-coloring for all window tags
+
+.. raw:: html
+
+    <div align="center">
+    <img src="https://raw.githubusercontent.com/Determinant/tmux-colortag/master/demo-manual-coloring.gif" width="90%">
+    </div>
 
 - If you would like to use Powerline symbols like shown in the demo, add the
   following line to the top of your ``.tmux.conf`` to enable them:
