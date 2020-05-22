@@ -1,24 +1,31 @@
 #!/usr/bin/env bash
 
+run_python() {
+    err=$("$CURRENT_DIR/name2color.py" "$session" "$idx" "$name" "$@") || tmux display "ColorTag: invalid argument"
+    if [[ "$err" != "" ]]; then
+        tmux display "$err"
+    fi
+}
+
 CURRENT_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 case "$1" in
     prompt)
         tmux command-prompt -p '[ColorTag]:' "run-shell 'idx=#I name=#W session=#S $CURRENT_DIR/tmux-colortag-prompt.sh %1'"
         ;;
     color-idx)
-        "$CURRENT_DIR/name2color.py" "$session" "$idx" "$name" --color-idx "$2" || echo "ColorTag: invalid argument"
+        run_python --color-idx "$2"
         ;;
     color-name)
-        "$CURRENT_DIR/name2color.py" "$session" "$idx" "$name" --color-name "$2" || echo "ColorTag: invalid argument"
+        run_python --color-name "$2"
         ;;
     clear-idx)
-        "$CURRENT_DIR/name2color.py" "$session" "$idx" "$name" --clear-idx
+        run_python --clear-idx
         ;;
     clear-name)
-        "$CURRENT_DIR/name2color.py" "$session" "$idx" "$name" --clear-name
+        run_python --clear-name
         ;;
     clear-all)
-        "$CURRENT_DIR/name2color.py" "$session" "$idx" "$name" --clear
+        run_python --clear
         ;;
-    *) echo "ColorTag: invalid command"; exit 0;;
+    *) tmux display "ColorTag: invalid command"; exit 0;;
 esac
