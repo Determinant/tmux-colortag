@@ -24,13 +24,13 @@ color8=colour235
 if [[ "$TMUX_COLORTAG_TAG_ONLY" != yes ]]; then
     tmux set -g message-style fg=$color0,bg=$color4
     tmux set -g message-command-style fg=$color0,bg=$color4
-    tmux set -g pane-active-border-style fg=$color6
+    tmux set -g pane-active-border-style fg=$color6,bg=$color8
     tmux set -g pane-border-style fg=$color7,bg=$color8
-    tmux set -g pane-active-border-style bg=$color8
+    tmux set -g window-style bg=$color8
 fi
 
-tmux set -g window-status-separator ""
 tmux set -g status-style bg=$color0
+tmux set -g window-status-separator ""
 tmux set -g window-status-style fg=$color0,bg=$color0,none
 tmux set -g window-status-activity-style bg=$color0,fg=$color4,none
 tmux set -g window-status-bell-style bg=$color0,fg=$color4,none
