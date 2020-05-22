@@ -55,16 +55,16 @@ if args.idx < 0 or args.idx >= 1024:
 if args.clear_idx:
     try:
         del state[args.idx]
-        changed = True
     except Exception:
         pass
+    changed = True
 
 if args.clear_name:
     try:
         del state[args.name]
-        changed = True
     except Exception:
         pass
+    changed = True
 
 if not (args.color_idx is None):
     if args.color_idx < 0 and args.color_idx >= 256:

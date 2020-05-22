@@ -12,7 +12,7 @@ Also works for powerline haters with default setting.
 .. raw:: html
 
     <div align="center">
-    <img src="https://raw.githubusercontent.com/Determinant/tmux-colortag/master/no-powerline-symbol.png" width="85%">
+    <img src="https://raw.githubusercontent.com/Determinant/tmux-colortag/master/no-powerline-symbol.png" width="80%">
     </div>
 
 What's This?
