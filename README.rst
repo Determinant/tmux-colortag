@@ -1,5 +1,5 @@
-Tmux ColorTag Theme
--------------------
+Tmux ColorTag Plugin/Theme
+--------------------------
 
 .. raw:: html
 
@@ -18,9 +18,10 @@ Also works for powerline haters with default setting.
 What's This?
 ============
 
-This is a very succinct theme that colors the window tags according to their
+This is a very succinct plugin that colors the window tags according to their
 names. The color can even automatically change when your shell runs different
-programs!
+programs! It also serves as a minimal theme that is friendly to any people who
+just want something simple and works.
 
 Features
 ========
