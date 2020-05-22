@@ -32,13 +32,10 @@ Features
 TLDR; I just want it
 ====================
 
-- Paste the following to your new ``~/.tmux.conf``:
+- Execute the following line in your shell:
   ::
 
-    set -g @plugin 'tmux-plugins/tpm'
-    set -g @plugin 'tmux-plugins/tmux-sensible'
-    set -g @plugin 'tmux-plugins/tmux-colortag'
-    run -b '~/.tmux/plugins/tpm/tpm'
+    curl -sS https://raw.githubusercontent.com/Determinant/tmux-colortag/master/bootstrap.sh | bash
 
 - Run ``tmux``, and then hit ``prefix`` + ``I`` so everything should be ready.
 
