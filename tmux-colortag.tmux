@@ -14,13 +14,14 @@ fi
 bg0=colour235
 bg1=colour237
 white0=colour255
+white1=colour250
 lightgray=colour248
 darkgray=colour241
 
 if [[ "$TMUX_COLORTAG_TAG_ONLY" != yes ]]; then
     tmux set -g message-style fg=$bg1,bg=$lightgray
     tmux set -g message-command-style fg=$bg1,bg=$lightgray
-    tmux set -g pane-active-border-style fg=$darkgray,bg=$bg0
+    tmux set -g pane-active-border-style fg=$white1,bg=$bg0
     tmux set -g pane-border-style fg=$bg1,bg=$bg0
     tmux set -g window-style bg=$bg0
 fi
