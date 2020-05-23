@@ -92,6 +92,9 @@ Customization
 
 - Other tweakable variables:
 
+  - ``TMUX_COLORTAG_TAG_BOLD``: specify ``yes`` if you want bold tag text
+  - ``TMUX_COLORTAG_TAG_FOCUS_HIGHLIGHT``: specify ``yes`` if you want highlighted text for the active tag
+  - ``TMUX_COLORTAG_TAG_FOCUS_UNDERLINE``: specify ``yes`` if you want underlined text for the active tag
   - ``TMUX_ARROW_SYMBOL_L1``
   - ``TMUX_ARROW_SYMBOL_L2``
   - ``TMUX_ARROW_SYMBOL_R1``
