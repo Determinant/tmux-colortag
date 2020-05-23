@@ -108,6 +108,8 @@ Customization
     changing other styles such as borders), make it ``yes``.
 
   - ``TMUX_COLORTAG_IDX_SEP``: controls the separator between the window index and name.
+  - ``TMUX_COLORTAG_SEP_LEFT_PADDING``: padding string before the separator
+  - ``TMUX_COLORTAG_SEP_RIGHT_PADDING``: padding string after the separator
   - Theme colors (value example: "colour123")
 
     - ``colortag_bg0``
