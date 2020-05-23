@@ -85,6 +85,8 @@ Customization
   ::
 
     TMUX_COLORTAG_USE_POWERLINE=yes
+    # uncomment the following line to have rounded arrows
+    # TMUX_COLORTAG_ROUNDED_POWERLINE=yes
 
 - To change the prompt key (``prefix`` + ``C``), specify your key in ``TMUX_COLORTAG_KEY``.
 
