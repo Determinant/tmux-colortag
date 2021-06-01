@@ -2,6 +2,7 @@
 import argparse
 import os
 import sys
+import errno
 import hashlib
 import pickle
 
@@ -33,10 +34,18 @@ parser.add_argument('--clear', action='store_true')
 parser.add_argument('--show-state', action='store_true')
 args = parser.parse_args()
 
+state_prefix = os.path.expanduser("~/.tmux/plugins/tmux-colortag/state")
 state = {}
 changed = True
-saved_state = os.path.expanduser(
-    "~/.tmux-colortag-{}.state".format(args.session))
+
+try:
+    os.makedirs(state_prefix)
+except OSError as e:
+    if e.errno != errno.EEXIST:
+        raise
+saved_state = os.path.join(
+    state_prefix,
+    "{}.state".format(args.session))
 
 try:
     with open(saved_state, "rb") as f:
