@@ -53,7 +53,7 @@ for plugin_path in try_plugin_paths:
         break
 
 if tmux_plugins_path is None:
-    tmux_plugins_path = "~/.tmux/plugins"
+    tmux_plugins_path = os.path.expanduser("~/.tmux/plugins")
 
 state_prefix = os.path.join(tmux_plugins_path, "tmux-colortag/state")
 
