@@ -34,18 +34,29 @@ parser.add_argument('--clear', action='store_true')
 parser.add_argument('--show-state', action='store_true')
 args = parser.parse_args()
 
-tmux_plugins_path = ""
-try_plugin_paths = [os.environ["TMUX_PLUGIN_MANAGER_PATH"], os.path.join(os.environ["XDG_CONFIG_HOME"], "tmux/plugins")]
-for plugin_path in [os.path.expanduser(path) for path in try_plugin_paths]:
+xdg_config_home_path = os.environ.get("XDG_CONFIG_HOME")
+tmux_plugin_manager_path = os.environ.get("TMUX_PLUGIN_MANAGER_PATH") or ""
+if xdg_config_home_path is None:
+    xdg_config_home_path = ""
+else:
+    xdg_config_home_path = os.path.join(xdg_config_home_path, "tmux/plugins")
+
+try_plugin_paths = [os.path.expanduser(path) for path in [
+    xdg_config_home_path,
+    tmux_plugin_manager_path,
+]]
+
+tmux_plugins_path = None
+for plugin_path in try_plugin_paths:
     if os.path.exists(plugin_path):
         tmux_plugins_path = plugin_path
         break
 
-if tmux_plugins_path == "":
+if tmux_plugins_path is None:
     tmux_plugins_path = "~/.tmux/plugins"
 
 state_prefix = os.path.join(tmux_plugins_path, "tmux-colortag/state")
-    
+
 state = {}
 changed = True
 
