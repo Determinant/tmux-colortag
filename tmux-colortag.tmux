@@ -54,13 +54,13 @@ if [[ "$TMUX_COLORTAG_TAG_ONLY" != yes ]]; then
     tmux set -g message-command-style fg=$bg1,bg=$lightgray
     tmux set -g pane-active-border-style fg=$white1,bg=$bg0
     tmux set -g pane-border-style fg=$bg1,bg=$bg0
-    tmux set -g window-style bg=$bg0
+#    tmux set -g window-style bg=$bg0
     tmux set -g mode-style fg=$bg1,bg=$white1
 fi
 
 tmux set -g status-style bg=$bg1
 tmux set -g window-status-separator ""
-tmux set -g window-status-style fg=$bg1,bg=$bg1,none
+#tmux set -g window-status-style fg=$bg1,bg=$bg1,none
 tmux set -g window-status-activity-style bg=$bg1,fg=$lightgray,none
 tmux set -g window-status-bell-style bg=$bg1,fg=$lightgray,none
 
@@ -73,7 +73,7 @@ RIGHTBAR_DEFAULT0="#[fg=$darkgray,bg=$bg1]"
 RIGHTBAR_HOST="#[fg=$bg1,bg=$lightgray]"
 RIGHTBAR_HOST0="#[fg=$lightgray,bg=$darkgray]"
 LOAD_DISP="#(awk '{print \$1, \$2, \$3}' /proc/loadavg)"
-TAB_COLOR="#(\"$CURRENT_DIR/name2color.py\" #S #I #W)"
+TAB_COLOR="#(\"$CURRENT_DIR/name2color.py\" #S #I '#W')"
 TAB_PREBEGIN="#[fg=$bg1,bg=${TAB_COLOR}]"
 TAB_NORMAL_BEGIN="#[fg=${TMUX_COLORTAG_TAG_TEXT_COLOR}$tab_text_attr]"
 TAB_END="#[fg=$TAB_COLOR,bg=$bg1,none]"
