@@ -54,13 +54,13 @@ if [[ "$TMUX_COLORTAG_TAG_ONLY" != yes ]]; then
     tmux set -g message-command-style fg=$bg1,bg=$lightgray
     tmux set -g pane-active-border-style fg=$white1,bg=$bg0
     tmux set -g pane-border-style fg=$bg1,bg=$bg0
-#    tmux set -g window-style bg=$bg0
+    tmux set -g window-style bg=$bg0
     tmux set -g mode-style fg=$bg1,bg=$white1
 fi
 
 tmux set -g status-style bg=$bg1
 tmux set -g window-status-separator ""
-#tmux set -g window-status-style fg=$bg1,bg=$bg1,none
+tmux set -g window-status-style fg=$bg1,bg=$bg1,none
 tmux set -g window-status-activity-style bg=$bg1,fg=$lightgray,none
 tmux set -g window-status-bell-style bg=$bg1,fg=$lightgray,none
 
